@@ -1,0 +1,21 @@
+## Interface: 100206
+
+## Title: BetterBags - Gear First
+## Author: Liwwo
+## Version: v1.0.0
+
+## Dependencies: BetterBags
+
+## Notes: Improves Alphabetical sorting by showing gear categories first.
+## Notes-ruRU: 
+## Notes-deDE: 
+## Notes-koKR: 
+## Notes-esMX: 
+## Notes-esES: 
+## Notes-ptBR: 
+## Notes-zhCN: 
+## Notes-zhTW: 
+## Notes-itIT: 
+## Notes-frFR: 
+
+main.lua
