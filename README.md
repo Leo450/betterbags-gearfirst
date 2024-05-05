@@ -10,12 +10,12 @@ Includes ignoring color codes of [BetterBags - BetterSort](https://www.curseforg
 
 Default alphabetical sorting
 
-![image](https://media.forgecdn.net/attachments/860/297/betterbags_default.png)
+![image](https://imgur.com/53fSPSc.png)
 
 Gear > Alphabetical
 
-![image](https://media.forgecdn.net/attachments/860/298/betterbags_gear.png)
+![image](https://imgur.com/qBSlu0W.png)
 
 Hearthstone > Gear > Alphabetical
 
-![image](https://media.forgecdn.net/attachments/860/299/betterbags_hs_gear.png)
+![image](https://imgur.com/V0iwQlM.png)
