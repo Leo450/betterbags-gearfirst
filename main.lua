@@ -2,63 +2,114 @@
 local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
 ---@class Localization: AceModule
 local L = BetterBags:GetModule('Localization')
+---@class Database: AceModule
+local database = BetterBags:GetModule('Database')
+---@class Constants: AceModule
+local const = BetterBags:GetModule('Constants')
 ---@class Sort: AceModule
 local sort = BetterBags:GetModule('Sort')
+---@class Config: AceModule
+local config = BetterBags:GetModule('Config')
 
--- Override the default sort function
+---@enum Add gear section order
+const.GEAR_SECTION_ORDER = {
+    "Head",
+    "Neck",
+    "Shoulder",
+    "Back",
+    "Chest",
+    "Wrist",
+    "Hands",
+    "Waist",
+    "Legs",
+    "Feet",
+    "Finger",
+    "Trinket",
+    "Two-Hand",
+    "One-Hand",
+    "Off Hand"
+}
+---@enum Add sort types
+const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY = 4
+const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY = 5
+
+-- Add config option
+local _GetBagOptions = config.GetBagOptions
+---@param kind BagKind
+---@return AceConfig.OptionsTable
+function config:GetBagOptions(kind)
+    local options = _GetBagOptions(self, kind)
+    options.args.sectionSorting.values[const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY] = L:G("Gear > Alphabetically")
+    options.args.sectionSorting.values[const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY] = L:G("Hearthstone > Gear > Alphabetically")
+    return options
+end
+
+
+---@param kind BagKind
+---@param view BagView
+---@return function
+function sort:GetSectionSortFunction(kind, view)
+    local sortType = database:GetSectionSortType(kind, view)
+    if sortType == const.SECTION_SORT_TYPE.ALPHABETICALLY then
+        return self.SortSectionsAlphabetically
+    elseif sortType == const.SECTION_SORT_TYPE.SIZE_ASCENDING then
+        return self.SortSectionsBySizeAscending
+    elseif sortType == const.SECTION_SORT_TYPE.SIZE_DESCENDING then
+        return self.SortSectionsBySizeDescending
+    elseif sortType == const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY then
+        return self.SortSectionsGearAlphabetically
+    elseif sortType == const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY then
+        return self.SortSectionsHearthstoneGearAlphabetically
+    end
+    assert(false, "Unknown sort type: " .. sortType)
+    return function() end
+end
+
+-- Add sort function
 ---@param a Section
 ---@param b Section
 ---@return boolean
-function sort.SortSectionsAlphabetically(a, b)
-    local titleA = a.title:GetText()
-    local titleB = b.title:GetText()
-
-    if titleA == L:G("Recent Items") then return true end
-    if titleB == L:G("Recent Items") then return false end
+function sort.SortSectionsGearAlphabetically(a, b)
+    if a.title:GetText() == L:G("Recent Items") then return true end
+    if b.title:GetText() == L:G("Recent Items") then return false end
+    
+    for _, gearType in pairs(const.GEAR_SECTION_ORDER) do
+        if a.title:GetText() == L:G(gearType) then return true end
+        if b.title:GetText() == L:G(gearType) then return false end
+    end
 
     if a:GetFillWidth() then return false end
     if b:GetFillWidth() then return true end
 
-    if titleA == L:G("Free Space") then return false end
-    if titleB == L:G("Free Space") then return true end
+    if a.title:GetText() == L:G("Free Space") then return false end
+    if b.title:GetText() == L:G("Free Space") then return true end
+    
+    return stripColorCode(a.title:GetText()) < stripColorCode(b.title:GetText())
+end
 
-    if titleA == L:G("Head") then return true end
-    if titleB == L:G("Head") then return false end
+-- Add sort function
+---@param a Section
+---@param b Section
+---@return boolean
+function sort.SortSectionsHearthstoneGearAlphabetically(a, b)
+    if a.title:GetText() == L:G("Recent Items") then return true end
+    if b.title:GetText() == L:G("Recent Items") then return false end
 
-    if titleA == L:G("Neck") then return true end
-    if titleB == L:G("Neck") then return false end
+    if a.title:GetText() == L:G("Hearthstones") then return true end
+    if b.title:GetText() == L:G("Hearthstones") then return false end
 
-    if titleA == L:G("Shoulder") then return true end
-    if titleB == L:G("Shoulder") then return false end
+    for _, gearType in pairs(const.GEAR_SECTION_ORDER) do
+        if a.title:GetText() == L:G(gearType) then return true end
+        if b.title:GetText() == L:G(gearType) then return false end
+    end
 
-    if titleA == L:G("Back") then return true end
-    if titleB == L:G("Back") then return false end
+    if a:GetFillWidth() then return false end
+    if b:GetFillWidth() then return true end
 
-    if titleA == L:G("Chest") then return true end
-    if titleB == L:G("Chest") then return false end
+    if a.title:GetText() == L:G("Free Space") then return false end
+    if b.title:GetText() == L:G("Free Space") then return true end
 
-    if titleA == L:G("Wrist") then return true end
-    if titleB == L:G("Wrist") then return false end
-
-    if titleA == L:G("Hands") then return true end
-    if titleB == L:G("Hands") then return false end
-
-    if titleA == L:G("Waist") then return true end
-    if titleB == L:G("Waist") then return false end
-
-    if titleA == L:G("Legs") then return true end
-    if titleB == L:G("Legs") then return false end
-
-    if titleA == L:G("Feet") then return true end
-    if titleB == L:G("Feet") then return false end
-
-    if titleA == L:G("Finger") then return true end
-    if titleB == L:G("Finger") then return false end
-
-    if titleA == L:G("Trinket") then return true end
-    if titleB == L:G("Trinket") then return false end
-
-    return stripColorCode(titleA) < stripColorCode(titleB)
+    return stripColorCode(a.title:GetText()) < stripColorCode(b.title:GetText())
 end
 
 ---@param text string

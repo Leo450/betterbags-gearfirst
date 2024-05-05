@@ -2,11 +2,12 @@
 
 ## Title: BetterBags - Gear First
 ## Author: Liwwo
-## Version: v1.0.0
+## Version: v1.0.1
+## X-License: MIT
 
 ## Dependencies: BetterBags
 
-## Notes: Improves Alphabetical sorting by showing gear categories first.
+## Notes: Add options to show gear categories first.
 ## Notes-ruRU: 
 ## Notes-deDE: 
 ## Notes-koKR: 
