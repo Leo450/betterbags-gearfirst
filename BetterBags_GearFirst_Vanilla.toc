@@ -2,7 +2,7 @@
 
 ## Title: BetterBags - Gear First
 ## Author: Liwwo
-## Version: v1.0.1
+## Version: v1.0.2
 ## X-License: MIT
 
 ## Dependencies: BetterBags
@@ -19,4 +19,5 @@
 ## Notes-itIT: @localization(locale="itIT")@
 ## Notes-frFR: @localization(locale="frFR")@
 
+i18n.lua
 main.lua
