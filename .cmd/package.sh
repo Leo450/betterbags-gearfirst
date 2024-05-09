@@ -1,6 +1,6 @@
 ﻿#!/bin/bash
 
-FILES="BetterBags_GearFirst.toc BetterBags_GearFirst_Vanilla.toc BetterBags_GearFirst_Wrath.toc i18n.lua main.lua LICENSE README.md"
+FILES="BetterBags_GearFirst.toc BetterBags_GearFirst_Vanilla.toc BetterBags_GearFirst_Cata.toc i18n.lua main.lua LICENSE README.md"
 
 # Read the version from the .toc file
 VERSION=$(grep -oP '## Version: \K.*' BetterBags_GearFirst.toc)
