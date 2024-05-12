@@ -6,6 +6,8 @@ Has an option to show "Hearthstones" category first if you have created one or h
 
 Includes ignoring color codes of [BetterBags - BetterSort](https://www.curseforge.com/wow/addons/betterbags-bettersort). Thanks to the author for his work.
 
+Supports [BetterBags - iLvl](https://www.curseforge.com/wow/addons/betterbags-ilvl) "Low iLvl" category showing after gear categories. Thanks to the author for his work.
+
 ## Examples
 
 Default alphabetical sorting

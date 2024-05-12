@@ -27,7 +27,9 @@ const.GEAR_SECTION_ORDER = {
     "Trinket",
     "Two-Hand",
     "One-Hand",
-    "Off Hand"
+    "Off Hand",
+    "Ranged",
+    "Low iLvl"
 }
 ---@enum Add sort types
 const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY = 4
