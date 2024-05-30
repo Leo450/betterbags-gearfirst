@@ -28,6 +28,7 @@ const.GEAR_SECTION_ORDER = {
     "Two-Hand",
     "One-Hand",
     "Off Hand",
+    "Held In Off-hand",
     "Ranged",
     "Low iLvl"
 }
