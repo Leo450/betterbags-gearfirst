@@ -2,8 +2,8 @@
 
 ## Title: BetterBags - Gear First
 ## Author: Liwwo
-## Version: v1.0.6
-## X-Date: 2024-05-30T17:53:52
+## Version: v1.0.7
+## X-Date: 2024-06-05T13:28:17
 ## X-License: MIT
 ## X-Curse-Project-ID: 1012882
 
