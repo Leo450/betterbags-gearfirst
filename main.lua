@@ -26,6 +26,7 @@ const.GEAR_SECTION_ORDER = {
     "Finger",
     "Trinket",
     "Two-Hand",
+    "Main Hand",
     "One-Hand",
     "Off Hand",
     "Held In Off-hand",
