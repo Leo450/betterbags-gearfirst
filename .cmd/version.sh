@@ -12,10 +12,6 @@ NEW_VERSION=${NEW_VERSION:-$VERSION}
 
 # Update the .toc files version
 sed -i "s/## Version: .*/## Version: $NEW_VERSION/" BetterBags_GearFirst.toc
-sed -i "s/## Version: .*/## Version: $NEW_VERSION/" BetterBags_GearFirst_Vanilla.toc
-sed -i "s/## Version: .*/## Version: $NEW_VERSION/" BetterBags_GearFirst_Cata.toc
 
 # Update the .toc files date
 sed -i "s/## X-Date: .*/## X-Date: $(date -u +'%Y-%m-%dT%H:%M:%S')/" BetterBags_GearFirst.toc
-sed -i "s/## X-Date: .*/## X-Date: $(date -u +'%Y-%m-%dT%H:%M:%S')/" BetterBags_GearFirst_Vanilla.toc
-sed -i "s/## X-Date: .*/## X-Date: $(date -u +'%Y-%m-%dT%H:%M:%S')/" BetterBags_GearFirst_Cata.toc
