@@ -49,6 +49,7 @@ function config:GetBagOptions(kind)
 end
 
 
+-- Override sort function getter
 ---@param kind BagKind
 ---@param view BagView
 ---@return function
@@ -76,7 +77,10 @@ function sort:GetSectionSortFunction(kind, view)
         end
     end
     assert(false, "Unknown sort type: " .. sortType)
-    return function() end
+    -- Fallback to alphabetical sort
+    return function(a, b)
+        return self.SortSectionsAlphabetically(kind, a, b)
+    end
 end
 
 -- Add gear sort function
