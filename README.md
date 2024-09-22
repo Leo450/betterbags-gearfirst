@@ -8,6 +8,12 @@ Includes ignoring color codes of [BetterBags - BetterSort](https://www.curseforg
 
 Supports [BetterBags - iLvl](https://www.curseforge.com/wow/addons/betterbags-ilvl) "Low iLvl" category showing after gear categories. Thanks to the author for his work.
 
+## Configuration
+
+- Open BetterBags Settings (left click bag icon -> "Open Options Screen").
+- Scroll to or click section "Plugins > Gear First".
+- Choose "Section Order" as you like (This option overrides the default "Backpack > Section Order" option).
+
 ## Examples
 
 Default alphabetical sorting
