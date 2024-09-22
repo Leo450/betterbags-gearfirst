@@ -3,9 +3,11 @@ local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
 ---@class Localization: AceModule
 local L = BetterBags:GetModule('Localization')
 ---@class Database: AceModule
-local database = BetterBags:GetModule('Database')
+local db = BetterBags:GetModule('Database')
 ---@class Constants: AceModule
 local const = BetterBags:GetModule('Constants')
+---@class Events: AceModule
+local events = BetterBags:GetModule('Events')
 ---@class Sort: AceModule
 local sort = BetterBags:GetModule('Sort')
 ---@class Config: AceModule
@@ -38,23 +40,51 @@ const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY = 4
 const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY = 5
 
 -- Add config option
-local _GetBagOptions = config.GetBagOptions
----@param kind BagKind
----@return AceConfig.OptionsTable
-function config:GetBagOptions(kind)
-    local options = _GetBagOptions(self, kind)
-    options.args.sectionSorting.values[const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY] = L:G("Gear > Alphabetically")
-    options.args.sectionSorting.values[const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY] = L:G("Hearthstone > Gear > Alphabetically")
-    return options
-end
+local selectValueToLabel = {
+    [const.SECTION_SORT_TYPE.ALPHABETICALLY] = L:G("Alphabetically"),
+    [const.SECTION_SORT_TYPE.SIZE_DESCENDING] = L:G("Size Descending"),
+    [const.SECTION_SORT_TYPE.SIZE_ASCENDING] = L:G("Size Ascending"),
+    [const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY] = L:G("Gear > Alphabetically"),
+    [const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY] = L:G("Hearthstone > Gear > Alphabetically")
+}
+local selectLabelToValue = {
+    [L:G("Alphabetically")] = const.SECTION_SORT_TYPE.ALPHABETICALLY,
+    [L:G("Size Descending")] = const.SECTION_SORT_TYPE.SIZE_DESCENDING,
+    [L:G("Size Ascending")] = const.SECTION_SORT_TYPE.SIZE_ASCENDING,
+    [L:G("Gear > Alphabetically")] = const.SECTION_SORT_TYPE.GEAR_ALPHABETICALLY,
+    [L:G("Hearthstone > Gear > Alphabetically")] = const.SECTION_SORT_TYPE.HEARTHSTONE_GEAR_ALPHABETICALLY
+}
 
+local eventFrame = CreateFrame("Frame", "GearFirstEventFrame", UIParent)
+eventFrame:RegisterEvent("ADDON_LOADED")
+eventFrame:SetScript("OnEvent", function(_, event, ...)
+    if event == "ADDON_LOADED" then
+        local name = ...;
+        if name ~= "BetterBags_GearFirst" then return end
+        config:AddPluginConfig("Gear First", {
+            {
+                name = "Section Order",
+                desc = "The order of sections in the backpack when not pinned.\nThis option overrides the default \"Backpack > Section Order\" option.",
+                type = "select",
+                values = selectValueToLabel,
+                get = function()
+                    return selectValueToLabel[db:GetSectionSortType(const.BAG_KIND.BACKPACK, db:GetBagView(const.BAG_KIND.BACKPACK))]
+                end,
+                set = function(ctx, value)
+                    db:SetSectionSortType(const.BAG_KIND.BACKPACK, db:GetBagView(const.BAG_KIND.BACKPACK), selectLabelToValue[value])
+                    events:SendMessage(ctx, "bags/FullRefreshAll")
+                end,
+            }
+        })
+    end
+end)
 
 -- Override sort function getter
 ---@param kind BagKind
 ---@param view BagView
 ---@return function
 function sort:GetSectionSortFunction(kind, view)
-    local sortType = database:GetSectionSortType(kind, view)
+    local sortType = db:GetSectionSortType(kind, view)
     if sortType == const.SECTION_SORT_TYPE.ALPHABETICALLY then
         return function(a, b)
             return self.SortSectionsAlphabetically(kind, a, b)

@@ -12,12 +12,12 @@ Supports [BetterBags - iLvl](https://www.curseforge.com/wow/addons/betterbags-il
 
 Default alphabetical sorting
 
-![image](https://imgur.com/53fSPSc.png)
+![image](https://i.imgur.com/8JBkd6B_d.webp?maxwidth=760&fidelity=grand)
 
 Gear > Alphabetical
 
-![image](https://imgur.com/qBSlu0W.png)
+![image](https://i.imgur.com/ZaEtwD2_d.webp?maxwidth=760&fidelity=grand)
 
 Hearthstone > Gear > Alphabetical
 
-![image](https://imgur.com/V0iwQlM.png)
+![image](https://i.imgur.com/7mYT46h_d.webp?maxwidth=760&fidelity=grand)
