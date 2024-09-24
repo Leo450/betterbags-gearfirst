@@ -3,209 +3,250 @@ local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
 ---@class Localization: AceModule
 local L = BetterBags:GetModule('Localization')
 
-local locale = GetLocale()
-
-if locale == "esMX" then
-    L:S("Hearthstones", "Piedras de hogar")
-    L:S("Head", "Cabeza")
-    L:S("Neck", "Cuello")
-    L:S("Shoulder", "Hombro")
-    L:S("Back", "Espalda")
-    L:S("Chest", "Pecho")
-    L:S("Wrist", "Muñecas")
-    L:S("Hands", "Manos")
-    L:S("Waist", "Cintura")
-    L:S("Legs", "Piernas")
-    L:S("Feet", "Pies")
-    L:S("Finger", "Dedo")
-    L:S("Trinket", "Abalorio")
-    L:S("Main Hand", "Mano derecha")
-    L:S("Two-Hand", "Dos manos")
-    L:S("One-Hand", "Una mano")
-    L:S("Off Hand", "Mano izquierda")
-    L:S("Held In Off-hand", "Mano izquierda")
-    L:S("Ranged", "A distancia")
-elseif locale == "ptBR" then
-    L:S("Hearthstones", "Pedras de regresso")
-    L:S("Head", "Cabeça")
-    L:S("Neck", "Pescoço")
-    L:S("Shoulder", "Ombros")
-    L:S("Back", "Costas")
-    L:S("Chest", "Torso")
-    L:S("Wrist", "Pulsos")
-    L:S("Hands", "Mãos")
-    L:S("Waist", "Cintura")
-    L:S("Legs", "Pernas")
-    L:S("Feet", "Pés")
-    L:S("Finger", "Dedo")
-    L:S("Trinket", "Berloque")
-    L:S("Main Hand", "Mão principal")
-    L:S("Two-Hand", "Duas mãos")
-    L:S("One-Hand", "Uma Mão")
-    L:S("Off Hand", "Mão Secundária")
-    L:S("Held In Off-hand", "Empunhado na mão secundária")
-    L:S("Ranged", "Longo alcance")
-elseif locale == "frFR" then
-    L:S("Hearthstones", "Pierres de foyer")
-    L:S("Head", "Tête")
-    L:S("Neck", "Cou")
-    L:S("Shoulder", "Épaule")
-    L:S("Back", "Dos")
-    L:S("Chest", "Torse")
-    L:S("Wrist", "Poignets")
-    L:S("Hands", "Mains")
-    L:S("Waist", "Taille")
-    L:S("Legs", "Jambes")
-    L:S("Feet", "Pieds")
-    L:S("Finger", "Doigt")
-    L:S("Trinket", "Bijou")
-    L:S("Main Hand", "Main droite")
-    L:S("Two-Hand", "Deux mains")
-    L:S("One-Hand", "À une main")
-    L:S("Off Hand", "Main gauche")
-    L:S("Held In Off-hand", "Tenu(e) en main gauche")
-    L:S("Ranged", "À distance")
-    L:S("Low iLvl", "iLvl faible")
-elseif locale == "deDE" then
-    L:S("Hearthstones", "Ruhesteine")
-    L:S("Head", "Kopf")
-    L:S("Neck", "Hals")
-    L:S("Shoulder", "Schulter")
-    L:S("Back", "Rücken")
-    L:S("Chest", "Brust")
-    L:S("Wrist", "Handgelenk")
-    L:S("Hands", "Hände")
-    L:S("Waist", "Taille")
-    L:S("Legs", "Beine")
-    L:S("Feet", "Füße")
-    L:S("Finger", "Finger")
-    L:S("Trinket", "Schmuck")
-    L:S("Main Hand", "Waffenhand")
-    L:S("Two-Hand", "Zweihändig")
-    L:S("One-Hand", "Einhändig")
-    L:S("Off Hand", "Schildhand")
-    L:S("Held In Off-hand", "In Schildhand geführt")
-    L:S("Ranged", "Distanz")
-elseif locale == "esES" then
-    L:S("Hearthstones", "Piedras de hogar")
-    L:S("Head", "Cabeza")
-    L:S("Neck", "Cuello")
-    L:S("Shoulder", "Hombro")
-    L:S("Back", "Espalda")
-    L:S("Chest", "Torso")
-    L:S("Wrist", "Muñecas")
-    L:S("Hands", "Manos")
-    L:S("Waist", "Cintura")
-    L:S("Legs", "Piernas")
-    L:S("Feet", "Pies")
-    L:S("Finger", "Dedo")
-    L:S("Trinket", "Abalorio")
-    L:S("Main Hand", "Mano derecha")
-    L:S("Two-Hand", "Dos manos")
-    L:S("One-Hand", "Una mano")
-    L:S("Off Hand", "Mano izquierda")
-    L:S("Held In Off-hand", "Mano izquierda")
-    L:S("Ranged", "A distancia")
-elseif locale == "itIT" then
-    L:S("Hearthstones", "Pietre del Ritorno")
-    L:S("Head", "Testa")
-    L:S("Neck", "Collo")
-    L:S("Shoulder", "Spalle")
-    L:S("Back", "Schiena")
-    L:S("Chest", "Torso")
-    L:S("Wrist", "Polsi")
-    L:S("Hands", "Mani")
-    L:S("Waist", "Fianchi")
-    L:S("Legs", "Gambe")
-    L:S("Feet", "Piedi")
-    L:S("Finger", "Dito")
-    L:S("Trinket", "Monile")
-    L:S("Main Hand", "Mano primaria")
-    L:S("Two-Hand", "Due mani")
-    L:S("One-Hand", "Una mano")
-    L:S("Off Hand", "Mano secondaria")
-    L:S("Held In Off-hand", "Accessorio")
-    L:S("Ranged", "A distanza")
-elseif locale == "ruRU" then
-    L:S("Hearthstones", "Камни возвращения")
-    L:S("Head", "Голова")
-    L:S("Neck", "Шея")
-    L:S("Shoulder", "Плечи")
-    L:S("Back", "Спина")
-    L:S("Chest", "Грудь")
-    L:S("Wrist", "Запястья")
-    L:S("Hands", "Кисти рук")
-    L:S("Waist", "Пояс")
-    L:S("Legs", "Ноги")
-    L:S("Feet", "Ступни")
-    L:S("Finger", "Палец")
-    L:S("Trinket", "Аксессуар")
-    L:S("Main Hand", "Правая рука")
-    L:S("Two-Hand", "Двуручное")
-    L:S("One-Hand", "Одноручное")
-    L:S("Off Hand", "Левая рука")
-    L:S("Held In Off-hand", "Левая рука")
-    L:S("Ranged", "Дальний бой")
-elseif locale == "zhTW" then
-    L:S("Hearthstones", "爐石")
-    L:S("Head", "頭部")
-    L:S("Neck", "頸部")
-    L:S("Shoulder", "肩部")
-    L:S("Back", "背部")
-    L:S("Chest", "胸部")
-    L:S("Wrist", "手腕")
-    L:S("Hands", "手")
-    L:S("Waist", "腰部")
-    L:S("Legs", "腿部")
-    L:S("Feet", "腳")
-    L:S("Finger", "手指")
-    L:S("Trinket", "飾品")
-    L:S("Main Hand", "主手")
-    L:S("Two-Hand", "雙手")
-    L:S("One-Hand", "單手")
-    L:S("Off Hand", "副手")
-    L:S("Held In Off-hand", "副手物品")
-    L:S("Ranged", "遠程")
-elseif locale == "zhCN" then
-    -- Generated by Copilot. Might not be accurate.
-    L:S("Hearthstones", "炉石")
-    L:S("Head", "头部")
-    L:S("Neck", "颈部")
-    L:S("Shoulder", "肩部")
-    L:S("Back", "背部")
-    L:S("Chest", "胸部")
-    L:S("Wrist", "手腕")
-    L:S("Hands", "手")
-    L:S("Waist", "腰部")
-    L:S("Legs", "腿部")
-    L:S("Feet", "脚")
-    L:S("Finger", "手指")
-    L:S("Trinket", "饰品")
-    L:S("Main Hand", "主手")
-    L:S("Two-Hand", "双手")
-    L:S("One-Hand", "单手")
-    L:S("Off Hand", "副手")
-    L:S("Held In Off-hand", "副手物品")
-    L:S("Ranged", "远程")
-elseif locale == "koKR" then
-    -- Generated by Copilot, corrected from wowhead. Might not be accurate.
-    L:S("Hearthstones", "귀환석")
-    L:S("Head", "머리")
-    L:S("Neck", "목")
-    L:S("Shoulder", "어깨")
-    L:S("Back", "등")
-    L:S("Chest", "가슴")
-    L:S("Wrist", "손목")
-    L:S("Hands", "손")
-    L:S("Waist", "허리")
-    L:S("Legs", "다리")
-    L:S("Feet", "발")
-    L:S("Finger", "손가락")
-    L:S("Trinket", "장신구")
-    L:S("Main Hand", "주장비")
-    L:S("Two-Hand", "양손")
-    L:S("One-Hand", "한손 장비")
-    L:S("Off Hand", "보조장비")
-    L:S("Held In Off-hand", "보조장비")
-    L:S("Ranged", "원거리 장비")
-end
+L.data['Hearthstones'] = {
+["enUS"] = "Hearthstones",
+["esMX"] = "Piedras de hogar",
+["ptBR"] = "Pedras de regresso",
+    ["frFR"] = "Pierres de foyer",
+    ["deDE"] = "Ruhesteine",
+    ["esES"] = "Piedras de hogar",
+    ["itIT"] = "Pietre del Ritorno",
+    ["ruRU"] = "Камни возвращения",
+    ["koKR"] = "귀환석",
+    ["zhTW"] = "爐石",
+    ["zhCN"] = "炉石"
+}
+L.data['Head'] = {
+    ["enUS"] = "Head",
+    ["esMX"] = "Cabeza",
+    ["ptBR"] = "Cabeça",
+    ["frFR"] = "Tête",
+    ["deDE"] = "Kopf",
+    ["esES"] = "Cabeza",
+    ["itIT"] = "Testa",
+    ["ruRU"] = "Голова",
+    ["koKR"] = "머리",
+    ["zhTW"] = "頭部",
+    ["zhCN"] = "头部"
+}
+L.data['Neck'] = {
+    ["enUS"] = "Neck",
+    ["esMX"] = "Cuello",
+    ["ptBR"] = "Pescoço",
+    ["frFR"] = "Cou",
+    ["deDE"] = "Hals",
+    ["esES"] = "Cuello",
+    ["itIT"] = "Collo",
+    ["ruRU"] = "Шея",
+    ["koKR"] = "목",
+    ["zhTW"] = "頸部",
+    ["zhCN"] = "颈部"
+}
+L.data['Shoulder'] = {
+    ["enUS"] = "Shoulder",
+    ["esMX"] = "Hombro",
+    ["ptBR"] = "Ombros",
+    ["frFR"] = "Épaule",
+    ["deDE"] = "Schulter",
+    ["esES"] = "Hombro",
+    ["itIT"] = "Spalle",
+    ["ruRU"] = "Плечи",
+    ["koKR"] = "어깨",
+    ["zhTW"] = "肩部",
+    ["zhCN"] = "肩部"
+}
+L.data['Back'] = {
+    ["enUS"] = "Back",
+    ["esMX"] = "Espalda",
+    ["ptBR"] = "Costas",
+    ["frFR"] = "Dos",
+    ["deDE"] = "Rücken",
+    ["esES"] = "Espalda",
+    ["itIT"] = "Schiena",
+    ["ruRU"] = "Спина",
+    ["koKR"] = "등",
+    ["zhTW"] = "背部",
+    ["zhCN"] = "背部"
+}
+L.data['Chest'] = {
+    ["enUS"] = "Chest",
+    ["esMX"] = "Pecho",
+    ["ptBR"] = "Torso",
+    ["frFR"] = "Torse",
+    ["deDE"] = "Brust",
+    ["esES"] = "Torso",
+    ["itIT"] = "Torso",
+    ["ruRU"] = "Грудь",
+    ["koKR"] = "가슴",
+    ["zhTW"] = "胸部",
+    ["zhCN"] = "胸部"
+}
+L.data['Wrist'] = {
+    ["enUS"] = "Wrist",
+    ["esMX"] = "Muñecas",
+    ["ptBR"] = "Pulsos",
+    ["frFR"] = "Poignets",
+    ["deDE"] = "Handgelenk",
+    ["esES"] = "Muñecas",
+    ["itIT"] = "Polsi",
+    ["ruRU"] = "Запястья",
+    ["koKR"] = "손목",
+    ["zhTW"] = "手腕",
+    ["zhCN"] = "手腕"
+}
+L.data['Hands'] = {
+    ["enUS"] = "Hands",
+    ["esMX"] = "Manos",
+    ["ptBR"] = "Mãos",
+    ["frFR"] = "Mains",
+    ["deDE"] = "Hände",
+    ["esES"] = "Manos",
+    ["itIT"] = "Mani",
+    ["ruRU"] = "Кисти рук",
+    ["koKR"] = "손",
+    ["zhTW"] = "手",
+    ["zhCN"] = "手"
+}
+L.data['Waist'] = {
+    ["enUS"] = "Waist",
+    ["esMX"] = "Cintura",
+    ["ptBR"] = "Cintura",
+    ["frFR"] = "Taille",
+    ["deDE"] = "Taille",
+    ["esES"] = "Cintura",
+    ["itIT"] = "Fianchi",
+    ["ruRU"] = "Пояс",
+    ["koKR"] = "허리",
+    ["zhTW"] = "腰部",
+    ["zhCN"] = "腰部"
+}
+L.data['Legs'] = {
+    ["enUS"] = "Legs",
+    ["esMX"] = "Piernas",
+    ["ptBR"] = "Pernas",
+    ["frFR"] = "Jambes",
+    ["deDE"] = "Beine",
+    ["esES"] = "Piernas",
+    ["itIT"] = "Gambe",
+    ["ruRU"] = "Ноги",
+    ["koKR"] = "다리",
+    ["zhTW"] = "腿部",
+    ["zhCN"] = "腿部"
+}
+L.data['Feet'] = {
+    ["enUS"] = "Feet",
+    ["esMX"] = "Pies",
+    ["ptBR"] = "Pés",
+    ["frFR"] = "Pieds",
+    ["deDE"] = "Füße",
+    ["esES"] = "Pies",
+    ["itIT"] = "Piedi",
+    ["ruRU"] = "Ступни",
+    ["koKR"] = "발",
+    ["zhTW"] = "腳",
+    ["zhCN"] = "脚"
+}
+L.data['Finger'] = {
+    ["enUS"] = "Finger",
+    ["esMX"] = "Dedo",
+    ["ptBR"] = "Dedo",
+    ["frFR"] = "Doigt",
+    ["deDE"] = "Finger",
+    ["esES"] = "Dedo",
+    ["itIT"] = "Dito",
+    ["ruRU"] = "Палец",
+    ["koKR"] = "손가락",
+    ["zhTW"] = "手指",
+    ["zhCN"] = "手指"
+}
+L.data['Trinket'] = {
+    ["enUS"] = "Trinket",
+    ["esMX"] = "Abalorio",
+    ["ptBR"] = "Berloque",
+    ["frFR"] = "Bijou",
+    ["deDE"] = "Schmuck",
+    ["esES"] = "Abalorio",
+    ["itIT"] = "Monile",
+    ["ruRU"] = "Аксессуар",
+    ["koKR"] = "장신구",
+    ["zhTW"] = "飾品",
+    ["zhCN"] = "饰品"
+}
+L.data['Main Hand'] = {
+    ["enUS"] = "Main Hand",
+    ["esMX"] = "Mano derecha",
+    ["ptBR"] = "Mão principal",
+    ["frFR"] = "Main droite",
+    ["deDE"] = "Waffenhand",
+    ["esES"] = "Mano derecha",
+    ["itIT"] = "Mano primaria",
+    ["ruRU"] = "Правая рука",
+    ["koKR"] = "주장비",
+    ["zhTW"] = "主手",
+    ["zhCN"] = "主手"
+}
+L.data['Two-Hand'] = {
+    ["enUS"] = "Two-Hand",
+    ["esMX"] = "Dos manos",
+    ["ptBR"] = "Duas mãos",
+    ["frFR"] = "Deux mains",
+    ["deDE"] = "Zweihändig",
+    ["esES"] = "Dos manos",
+    ["itIT"] = "Due mani",
+    ["ruRU"] = "Двуручное",
+    ["koKR"] = "양손",
+    ["zhTW"] = "雙手",
+    ["zhCN"] = "双手"
+}
+L.data['One-Hand'] = {
+    ["enUS"] = "One-Hand",
+    ["esMX"] = "Una mano",
+    ["ptBR"] = "Uma Mão",
+    ["frFR"] = "À une main",
+    ["deDE"] = "Einhändig",
+    ["esES"] = "Una mano",
+    ["itIT"] = "Una mano",
+    ["ruRU"] = "Одноручное",
+    ["koKR"] = "한손 장비",
+    ["zhTW"] = "單手",
+    ["zhCN"] = "单手"
+}
+L.data['Off Hand'] = {
+    ["enUS"] = "Off Hand",
+    ["esMX"] = "Mano izquierda",
+    ["ptBR"] = "Mão Secundária",
+    ["frFR"] = "Main gauche",
+    ["deDE"] = "Schildhand",
+    ["esES"] = "Mano izquierda",
+    ["itIT"] = "Mano secondaria",
+    ["ruRU"] = "Левая рука",
+    ["koKR"] = "보조장비",
+    ["zhTW"] = "副手",
+    ["zhCN"] = "副手"
+}
+L.data['Held In Off-hand'] = {
+    ["enUS"] = "Held In Off-hand",
+    ["esMX"] = "Mano izquierda",
+    ["ptBR"] = "Empunhado na mão secundária",
+    ["frFR"] = "Tenu(e) en main gauche",
+    ["deDE"] = "In Schildhand geführt",
+    ["esES"] = "Mano izquierda",
+    ["itIT"] = "Accessorio",
+    ["ruRU"] = "Левая рука",
+    ["koKR"] = "보조장비",
+    ["zhTW"] = "副手物品",
+    ["zhCN"] = "副手物品"
+}
+L.data['Ranged'] = {
+    ["enUS"] = "Ranged",
+    ["esMX"] = "A distancia",
+    ["ptBR"] = "Longo alcance",
+    ["frFR"] = "À distance",
+    ["deDE"] = "Distanz",
+    ["esES"] = "A distancia",
+    ["itIT"] = "A distanza",
+    ["ruRU"] = "Дальний бой",
+    ["koKR"] = "원거리 장비",
+    ["zhTW"] = "遠程",
+    ["zhCN"] = "远程"
+}
