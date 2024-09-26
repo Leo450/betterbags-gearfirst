@@ -118,6 +118,9 @@ end
 ---@param b Section
 ---@return boolean
 function sort.SortSectionsGearAlphabetically(kind, a, b)
+    -- Ensure we have two valid items to sort
+    if a == nil or b == nil then return false end
+    
     local shouldSort, sortResult = sort.SortSectionsByPriority(kind, a, b)
     if shouldSort then return sortResult end
     
