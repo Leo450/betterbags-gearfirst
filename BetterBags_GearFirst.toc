@@ -1,4 +1,4 @@
-## Interface: 11503, 40400, 110002
+## Interface: 11503, 40400, 110002, 120007
 
 ## Title: BetterBags - Gear First
 ## Author: Liwwo
@@ -8,6 +8,7 @@
 ## X-Curse-Project-ID: 1012882
 
 ## Dependencies: BetterBags
+## SavedVariables: BetterBags_GearFirstDB
 
 ## Notes: Add options to show gear categories first.
 ## Notes-ruRU: 
