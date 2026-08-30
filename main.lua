@@ -203,6 +203,8 @@ end
 ---@param b Section
 ---@return boolean
 function sort.SortSectionsHearthstoneGearAlphabetically(kind, a, b)
+    if a == nil or b == nil then return false end
+    
     local aText = a.title:GetText()
     local bText = b.title:GetText()
     if aText == bText then return false end
